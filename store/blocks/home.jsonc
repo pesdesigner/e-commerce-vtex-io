@@ -1,15 +1,34 @@
 {
-  "store.home": { 
+  "store.home": {
     "blocks": [
-      "rich-text"
+      "search-result-layout.customQuery#home"
     ]
   },
-  "rich-text": { 
-    "props": { 
-      "text": "VTEX Store Framework",
-      "textAlignment": "CENTER",
-      "textPosition": "CENTER",
-      "font": "t-heading-1"
+  "search-result-layout.customQuery#home": {
+    "props": {
+      "querySchema": {
+        "skusFilter": "FIRST_AVAILABLE",
+        "simulationBehavior": "skip"
+      }
+    },
+    "blocks":["search-result-layout.desktop#lp", "search-result-layout.mobile"]
+  },
+  "search-result-layout.desktop#lp":{
+    "children": [
+      "search-content#lp"
+    ],
+    "props": {
+      "preventRouteChange": true
     }
+  },
+  "flex-layout.row#result":{
+    "children": [
+      "search-content#lp"
+    ]
+  },
+  "search-content#lp":{
+    "blocks":[
+      "gallery","not-found"
+    ]
   }
 }
