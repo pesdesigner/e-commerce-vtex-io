@@ -1,134 +1,117 @@
 {
   "store.home": {
     "blocks": [
-      "search-result-layout.customQuery#home"
+      "flex-layout.row"
     ]
   },
 
-  "search-result-layout.customQuery#home": {
-    "props": {
-      "querySchema": {
-        "skusFilter": "FIRST_AVAILABLE",
-        "simulationBehavior": "skip",
-        "maxItemsPerPage": 12
-      }
-    },
-    "blocks":["search-result-layout.desktop#lp", "search-result-layout.mobile"]
+  "flex-layout.row":{
+    "children": [
+      "tab-layout"
+    ]
   },
 
-  "search-result-layout.desktop#lp":{
+  "tab-layout": {
     "children": [
-      "search-content#lp"
+      "tab-list",
+      "tab-content"
+    ]
+  },
+
+  "tab-list": {
+    "children": [
+      "tab-list.item#1",
+      "tab-list.item#2"
+      ]
+  },
+
+  "tab-content": {
+    "children": [
+      "tab-content.item#1",
+      "tab-content.item#2"
+      ]
+  },
+
+  "tab-list.item#1": {
+    "props": {
+      "tabId": "produtos1",
+      "label": "Produtos 1",
+      "defaultActiveTab": true
+    }
+  },
+  "tab-list.item#2": {
+    "props": {
+      "tabId": "produtos2",
+      "label": "Produtos 2"
+    }
+  },
+
+  "tab-content.item#1": {
+    "children": [
+      "list-context.product-list#1"
     ],
     "props": {
-      "preventRouteChange": true
+      "tabId": "produtos1"
     }
   },
 
-  "search-content#lp":{
-    "blocks":[
-      "gallery#lp","not-found"
-    ]
-  },
-
-  "gallery#lp": {
-    "props": {
-      "layouts":[
-        {
-          "name": "grid",
-          "component": "GridSummary",
-          "itemPerRow": {
-            "(min-width:1300px)": 4,
-            "desktop": 3,
-            "tablet": 3,
-            "phone": 2
-          }
-        },
-        {
-          "name": "list",
-          "component": "ListSummary",
-          "itemsPerRow": 1
-        }
-      ],
-      "ListSummary": "product-summary.shelf#lp",
-      "GridSummary": "product-summary.shelf#lp"
-    }
-  },
-
-  "product-summary.shelf#lp":{
+  "tab-content.item#2": {
     "children": [
-      "modal-trigger#lp",
-      "product-summary-name",
-      "product-images#lp",
-      "vtex.product-highlights@2.x:product-highlights#1",
-      "vtex.product-highlights@2.x:product-highlights#2",
-      "product-summary-price",
-      "add-to-cart-button#lp"
+      "list-context.product-list#2"
     ],
-    "props":{
-      "blockClass":["clique","test"]
-    }
-  },
-  "product-images#lp":{
-    "props":{
-      "showNavigationArrows": true,
-      "showPaginationDots": true
-    }
-  },
-
-  "vtex.product-highlights@2.x:product-highlights#1": {
-    "children": ["product-highlight-text#1"]
-  },
-  "product-highlight-text#1": {
     "props": {
-      "message": "PRÉ LANÇAMENTO"
+      "tabId": "produtos2"
     }
   },
 
-  "vtex.product-highlights@2.x:product-highlights#2": {
-    "children": ["product-highlight-text#2"]
-  },
-  "product-highlight-text#2": {
-    "props": {
-      "message": "Validação a partir de: 21 - 08 -2021",
-      "link": ""
-    }
-  },
-
-  "add-to-cart-button#lp":{
-    "props": {
-      "onClickBehavior":"go-to-product-page"
-    }
-  },
-
-  "modal-trigger#lp":{
-    "children":[
-      "rich-text#lp",
-      "modal-layout#lp"
-    ]
-  },
-
-  "rich-text#lp":{
-    "props":{
-      "text":"clique"
-    }
-  },
-  "modal-layout#lp":{
-    "children": [
-      "video#lp"
-    ]
-  },
-
-  "video#lp":{
-    "props":{
-      "width": "100%",
-      "height": "600px",
-      "loop": false,
-      "autoPlay": true,
-      "muted": false,
-      "src": "https://www.youtube.com/channel/UCNesX6vTxxHPazhYIgFv_uQ",
-      "blockClass": "videoEl"
-    }
+ "list-context.product-list#1": {
+   "blocks": ["product-summary.shelf"],
+   "children": ["slider-layout#products"],
+   "props": {
+    "category": "20",
+    "hideUnavailableItems": true,
+    "blockClass": "products"
   }
+ },
+
+  "list-context.product-list#2": {
+    "blocks": ["product-summary.shelf"],
+    "children": ["slider-layout#products"],
+    "props": {
+      "category": "28",
+      "hideUnavailableItems": true,
+      "blockClass": "products"
+    }
+  },
+
+  "slider-layout#products": {
+		"props": {
+			"itemsPerPage": {
+				"desktop": 3,
+				"tablet": 2,
+				"phone": 2
+			},
+			"infinite": true,
+			"showNavigationArrows": "false",
+			"blockClass": "products",
+			"autoplay": {
+				"timeout": 5000,
+				"stopOnHover": true
+			}
+		}
+	},
+
+  "product-summary.shelf": {
+    "children": [
+      "product-summary-image",
+      "product-summary-name",
+      "product-selling-price",
+      "product-summary-buy-button"
+    ],
+    "props": {
+			"blockClass": "productsshelf"
+		}
+  }
+
 
 }
