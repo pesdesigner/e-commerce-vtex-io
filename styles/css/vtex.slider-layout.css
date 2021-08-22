@@ -1,0 +1,17 @@
+.sliderLayoutContainer {
+    max-width: 1080px;
+    margin: 25px auto;
+}
+
+.caretIcon {
+ color: white;
+}
+
+.bg-emphasis {
+    background-color: green;
+}
+
+.imageElement {
+    padding-bottom: 35px;
+    height: 350px;
+}
