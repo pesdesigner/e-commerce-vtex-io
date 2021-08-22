@@ -1,0 +1,11 @@
+.container--product-tag {
+    background-color: #008000;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.container--product-btn {
+    background-color: #424242;
+    color: white;
+}

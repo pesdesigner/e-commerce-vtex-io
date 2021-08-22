@@ -70,15 +70,15 @@
 
   "tab-list.item#1": {
     "props": {
-      "tabId": "produtos1",
-      "label": "Produtos 1",
+      "tabId": "category1",
+      "label": "Promoção",
       "defaultActiveTab": true
     }
   },
   "tab-list.item#2": {
     "props": {
-      "tabId": "produtos2",
-      "label": "Produtos 2"
+      "tabId": "category2",
+      "label": "Guerreiros"
     }
   },
 
@@ -87,7 +87,7 @@
       "list-context.product-list#1"
     ],
     "props": {
-      "tabId": "produtos1"
+      "tabId": "category1"
     }
   },
 
@@ -96,7 +96,7 @@
       "list-context.product-list#2"
     ],
     "props": {
-      "tabId": "produtos2"
+      "tabId": "category2"
     }
   },
 
@@ -139,15 +139,44 @@
 
   "product-summary.shelf": {
     "children": [
-      "product-summary-image",
       "product-summary-name",
+      "product-summary-image",
       "product-selling-price",
-      "product-summary-buy-button"
+      "rich-text#tag",
+      "rich-text#btn"
     ],
     "props": {
 			"blockClass": "productsshelf"
 		}
+  },
+
+  "product-summary-name": {
+    "props":{
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER"
+    }
+  },
+
+  "rich-text#tag": {
+    "props":{
+      "text":"LANÇAMENTO",
+      "blockClass": "product-tag",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER"
+    }
+  },
+
+  "rich-text#btn":{
+    "props":{
+      "text":"VER DETALHES",
+      "blockClass": "product-btn",
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER"
+    }
   }
+
+
+
 
 
 }
