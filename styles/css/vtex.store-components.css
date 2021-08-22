@@ -1,1 +1,12 @@
+.searchBarContainer {
+    width: 600px;
+    margin: auto;
+}
+
+.searchBarContainer :global(.vtex-input-prefix__group) {
+    border: none;
+    border-radius: 0;
+
+    width: 600px;
+}
 
