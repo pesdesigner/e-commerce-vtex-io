@@ -4,15 +4,18 @@
       "search-result-layout.customQuery#home"
     ]
   },
+
   "search-result-layout.customQuery#home": {
     "props": {
       "querySchema": {
         "skusFilter": "FIRST_AVAILABLE",
-        "simulationBehavior": "skip"
+        "simulationBehavior": "skip",
+        "maxItemsPerPage": 12
       }
     },
     "blocks":["search-result-layout.desktop#lp", "search-result-layout.mobile"]
   },
+
   "search-result-layout.desktop#lp":{
     "children": [
       "search-content#lp"
@@ -21,14 +24,111 @@
       "preventRouteChange": true
     }
   },
-  "flex-layout.row#result":{
-    "children": [
-      "search-content#lp"
-    ]
-  },
+
   "search-content#lp":{
     "blocks":[
-      "gallery","not-found"
+      "gallery#lp","not-found"
     ]
+  },
+
+  "gallery#lp": {
+    "props": {
+      "layouts":[
+        {
+          "name": "grid",
+          "component": "GridSummary",
+          "itemPerRow": {
+            "(min-width:1300px)": 4,
+            "desktop": 3,
+            "tablet": 3,
+            "phone": 2
+          }
+        },
+        {
+          "name": "list",
+          "component": "ListSummary",
+          "itemsPerRow": 1
+        }
+      ],
+      "ListSummary": "product-summary.shelf#lp",
+      "GridSummary": "product-summary.shelf#lp"
+    }
+  },
+
+  "product-summary.shelf#lp":{
+    "children": [
+      "modal-trigger#lp",
+      "product-summary-name",
+      "product-images#lp",
+      "vtex.product-highlights@2.x:product-highlights#1",
+      "vtex.product-highlights@2.x:product-highlights#2",
+      "product-summary-price",
+      "add-to-cart-button#lp"
+    ],
+    "props":{
+      "blockClass":["clique","test"]
+    }
+  },
+  "product-images#lp":{
+    "props":{
+      "showNavigationArrows": true,
+      "showPaginationDots": true
+    }
+  },
+
+  "vtex.product-highlights@2.x:product-highlights#1": {
+    "children": ["product-highlight-text#1"]
+  },
+  "product-highlight-text#1": {
+    "props": {
+      "message": "PRÉ LANÇAMENTO"
+    }
+  },
+
+  "vtex.product-highlights@2.x:product-highlights#2": {
+    "children": ["product-highlight-text#2"]
+  },
+  "product-highlight-text#2": {
+    "props": {
+      "message": "Validação a partir de: 21 - 08 -2021",
+      "link": ""
+    }
+  },
+
+  "add-to-cart-button#lp":{
+    "props": {
+      "onClickBehavior":"go-to-product-page"
+    }
+  },
+
+  "modal-trigger#lp":{
+    "children":[
+      "rich-text#lp",
+      "modal-layout#lp"
+    ]
+  },
+
+  "rich-text#lp":{
+    "props":{
+      "text":"clique"
+    }
+  },
+  "modal-layout#lp":{
+    "children": [
+      "video#lp"
+    ]
+  },
+
+  "video#lp":{
+    "props":{
+      "width": "100%",
+      "height": "600px",
+      "loop": false,
+      "autoPlay": true,
+      "muted": false,
+      "src": "https://www.youtube.com/channel/UCNesX6vTxxHPazhYIgFv_uQ",
+      "blockClass": "videoEl"
+    }
   }
+
 }
