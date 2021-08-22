@@ -2,25 +2,48 @@
   "footer": {
     "blocks": ["footer-layout.desktop", "footer-layout.mobile"]
   },
-  "footer-layout.desktop": { 
+  "footer-layout.desktop": {
     "children": [
-      "flex-layout.row#footer"
+      "flex-layout.row#footer-desktop"
     ]
   },
-  "footer-layout.mobile": { 
+  "footer-layout.mobile": {
     "children": [
-      "flex-layout.row#footer"
+      "flex-layout.row#footer-mobile"
     ]
   },
-  "flex-layout.row#footer": { 
+  "flex-layout.row#footer-desktop": {
     "children": [
-      "image"
+      "social-networks",
+      "flex-layout.col#logo-desktop"
     ]
   },
-  "image": {
+  "flex-layout.row#footer-mobile": {
+    "children": [
+      "social-networks"
+    ]
+  },
+  "social-networks": {
     "props": {
-      "width": 100,
-      "src": "https://brand.vtex.com/static/media/VTEX_pink_RGB.751a9fb5.svg"
+      "socialNetworks": [
+        { "url": "https://www.linkedin.com/in/paulo-eduardo-de-souza/", "name": "Linkedin" }
+      ]
+    }
+  },
+  "flex-layout.col#logo-desktop": {
+    "props": {
+      "verticalAlign": "middle",
+      "BlockClass": "bg-logo"
+    },
+    "children": ["logo"]
+  },
+  "logo": {
+    "props": {
+      "title": "Logo",
+      "href": "/",
+      "url": "https://static.wixstatic.com/media/a43c66_f6dc742ad20845698e5e5d593225e229~mv2.png/v1/fill/w_335,h_208,al_c,q_85,usm_0.66_1.00_0.01/Upmedal%20logo-ai.webp",
+      "width": "120"
     }
   }
+
 }
