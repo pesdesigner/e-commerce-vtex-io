@@ -5,6 +5,9 @@ e-ecommerce - UPMedal
 - Criar a solução a partir de um boiler template padrão da Vtex IO.
 - Markdown | CSS | Vtex.io | React
 
+### Componente customizado
+- [Suport test](https://github.com/pesdesigner/componente-e-commerce-vtex-io) 
+
 ### Demonstração do Layout - Tela inicial
 <img src="https://graficoeweb.com.br/images/github/banners-vtex.JPG">
 
