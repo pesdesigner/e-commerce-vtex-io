@@ -1,7 +1,9 @@
 {
   "store.home": {
     "blocks": [
-      "flex-layout.row"
+      "flex-layout.row",
+      "countdown",
+      "suport"
     ]
   },
 
